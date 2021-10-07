@@ -21,12 +21,20 @@
 						    100K pageviews / $16 per month //6
 						    500k pageviews / $24 per month //8
 						    1M pageviews / $36 per month   //10 -->
-					<p id="pageviews">100k PAGEVIEWS</p>
-					<input type="range" name="amount" value="6" min="2" max="10" />
-					<p id="amount"><span>$16.00</span> / amount</p>
+					<div class="flex-container">
+						<p id="pageviews"><span id="views">100k</span> PAGEVIEWS</p>
+						<div class="input">
+							<input type="range" name="amount" value="6" min="2" max="10" step="2" id="firstInput" />
+							<div id="progressBar"></div>
+						</div>
+						<p id="amount"><span id="price">$16.00</span> / amount</p>
+					</div>
+
 					<div class="billing">
 						<span>Monthly Billing</span>
-						<input type="range" name="billing" value="1" min="1" max="2" />
+						<div class="billing-input">
+							<input type="checkbox" name="billing" />
+						</div>
 						<span>Yearly Billing</span>
 						<span>-25%</span>
 					</div>

@@ -90,6 +90,27 @@ button:-moz-focusring,
   }
 }
 
+html::-webkit-scrollbar {
+  width: 10px;
+}
+
+html::-webkit-scrollbar-track {
+  background: rgba(78, 77, 77, 0.281);
+}
+
+html::-webkit-scrollbar-thumb {
+  background: #bdccff;
+  border-radius: 10px;
+}
+
+html::-webkit-scrollbar-thumb:hover {
+  background: #293356;
+}
+
+html::-webkit-scrollbar-thumb:active {
+  background: #858fad;
+}
+
 body {
   background-color: black;
   background-color: #fafbff;
@@ -144,14 +165,16 @@ body::after {
 
 main {
   padding-bottom: 20px;
+  margin-bottom: 20px;
   background: white;
-  border-radius: 5px;
-  -webkit-box-shadow: 2px 2px 2px #b4b4b4;
-          box-shadow: 2px 2px 2px #b4b4b4;
+  border-radius: 48px;
+  background: linear-gradient(145deg, #e1e2e667, #ffffff);
+  -webkit-box-shadow: 30px 30px 59px #d0d0d4, -30px -30px 59px #ffffff;
+          box-shadow: 30px 30px 59px #d0d0d4, -30px -30px 59px #ffffff;
 }
 
 main .first-section {
-  padding: 0 30px;
+  padding: 0 20px;
 }
 
 main .first-section p {
@@ -161,7 +184,7 @@ main .first-section p {
   padding: 20px 0;
 }
 
-main .first-section p span {
+main .first-section p:last-of-type span {
   display: inline-block;
   color: #293356;
   font-size: 2.2rem;
@@ -179,31 +202,80 @@ main .first-section .billing {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   max-width: 400px;
 }
 
-main .first-section .billing span {
+main .first-section .billing > span {
   color: #858fad;
-  font-size: .85rem;
+  font-size: 0.85rem;
+  text-align: center;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 
-main .first-section .billing span:last-of-type {
+main .first-section .billing > span:last-of-type {
   color: #ff8c66;
   background-color: #feece7;
-  font-size: .8rem;
+  font-size: 0.8rem;
   border-radius: 10px;
   padding: 3px 4px;
 }
 
+main .first-section .billing .billing-input {
+  width: 50px;
+  height: 25px;
+  position: relative;
+}
+
+main .first-section .billing .billing-input input {
+  width: 100%;
+  height: 100%;
+  background: #cdd7ee;
+  border-radius: 20px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+main .first-section .billing .billing-input input:hover {
+  cursor: pointer;
+}
+
+main .first-section .billing .billing-input input::before {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: white;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  pointer-events: none;
+}
+
+main .first-section .billing .billing-input input:checked {
+  background: #10d5c2;
+}
+
+main .first-section .billing .billing-input input:checked::before {
+  -webkit-transform: translateX(25px);
+          transform: translateX(25px);
+}
+
 main .second-section {
-  padding: 20px 30px;
+  padding: 20px;
   border-top: 1px solid #cdd7ee;
 }
 
 main .second-section .info p {
   text-align: center;
   color: #858fad;
-  font-size: .85rem;
+  font-size: 0.85rem;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
@@ -233,11 +305,127 @@ main .second-section button {
   background-color: #293356;
   color: #bdccff;
   border-radius: 20px;
-  -webkit-transition: .5s;
-  transition: .5s;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
 }
 
 main .second-section button:hover {
-  opacity: .8;
+  opacity: 0.8;
   cursor: pointer;
+}
+
+.input {
+  position: relative;
+  margin-top: 10px;
+}
+
+main .first-section .input > input[type="range"] {
+  -webkit-appearance: none;
+  /* Hides the slider so that custom slider can be made */
+  width: 100%;
+  /* Specific width is required for Firefox. */
+  background: transparent;
+  /* Otherwise white in Chrome */
+}
+
+main .first-section .input > input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+
+main .first-section .input > input[type="range"]:focus {
+  outline: none;
+  /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+}
+
+main .first-section .input > input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 36px;
+  width: 36px;
+  margin-top: -14px;
+  /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+  border-radius: 50%;
+  background: #10d5c2 url("../../images/icon-slider.svg") no-repeat center;
+  -webkit-box-shadow: 0px 10px 30px #10d5c2;
+          box-shadow: 0px 10px 30px #10d5c2;
+  cursor: pointer;
+  -webkit-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  position: relative;
+  z-index: 5;
+}
+
+main .first-section .input > input[type="range"]::-webkit-slider-thumb:hover {
+  background-color: #0da092;
+  -webkit-box-shadow: 0px 10px 20px #0da092;
+          box-shadow: 0px 10px 20px #0da092;
+}
+
+main .first-section .input > input[type="range"]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 10px;
+  cursor: pointer;
+  background: #eaeefb;
+  border-radius: 10px;
+}
+
+main .first-section .input > input[type="range"]:focus::-webkit-slider-runnable-track {
+  outline: 1px solid black;
+  outline-offset: 5px;
+}
+
+main .first-section .input > input[type="range"]:focus:not(:focus-visible)::-webkit-slider-runnable-track {
+  outline: none;
+}
+
+main .first-section .input > #progressBar {
+  display: inline-block;
+  content: " ";
+  width: 50%;
+  height: 11px;
+  border-radius: 10px;
+  background-color: #a5f3eb;
+  position: absolute;
+  left: 0px;
+  top: 3px;
+  pointer-events: none;
+}
+
+main .first-section .input > input[type="range"]:focus #progressBar {
+  background-color: #10d5c2;
+}
+
+@media screen and (min-width: 800px) {
+  .flex-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .flex-container p#pageviews {
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+    padding-top: 33px;
+  }
+  .flex-container p#amount {
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+  }
+  .flex-container div.input {
+    -webkit-box-ordinal-group: 4;
+        -ms-flex-order: 3;
+            order: 3;
+    width: 100%;
+  }
+  .billing span:last-of-type {
+    -webkit-transform: translateX(-20px);
+            transform: translateX(-20px);
+  }
 }

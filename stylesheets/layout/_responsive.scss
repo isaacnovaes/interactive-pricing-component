@@ -1,4 +1,26 @@
 @media screen and (min-width: 800px) {
-	//code for desktop
-}
+	.flex-container {
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		// align-content: center;
 
+		p#pageviews {
+			order: 1;
+			padding-top: 33px;
+		}
+		p#amount {
+			order: 2;
+		}
+		div.input {
+			order: 3;
+			width: 100%;
+		}
+	}
+
+	.billing {
+		span:last-of-type {
+			transform: translateX(-20px);
+		}
+	}
+}
