@@ -1,0 +1,140 @@
+body {
+	background-color: black;
+	background-color: $very-pale-blue;
+
+	&::after {
+		content: " ";
+		display: block;
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		z-index: 1;
+		background: rgb(80, 80, 80);
+		background: url("../../images/bg-pattern.svg") no-repeat;
+		background-size: 100% 60%; //play with it so that the perfect design is achieved
+	}
+}
+.container {
+	width: 90%;
+	max-width: 600px;
+	margin: 0 auto;
+	padding-top: 50px;
+	position: relative;
+	z-index: 2;
+
+	section {
+		padding: 50px 30px;
+		margin-bottom: 50px;
+		background-size: contain;
+		background: url("../../images/pattern-circles.svg") no-repeat center;
+		background-size: contain;
+
+		h1 {
+			font-weight: 700;
+			font-size: 1.5rem;
+			text-align: center;
+			color: $dark-unsaturated-blue;
+		}
+		p {
+			text-align: center;
+			color: $grayish-blue;
+			letter-spacing: 1px;
+		}
+		p:first-of-type {
+			margin-top: 15px;
+		}
+	}
+}
+
+main {
+	padding-bottom: 20px;
+	background: $white;
+	border-radius: 5px;
+	box-shadow: 2px 2px 2px rgb(180, 180, 180);
+
+	.first-section {
+		padding: 0 30px;
+		p {
+			text-align: center;
+			color: $grayish-blue;
+			font-weight: 700;
+			padding: 20px 0;
+
+			span {
+				display: inline-block;
+				color: $dark-unsaturated-blue;
+				font-size: 2.2rem;
+				position: relative;
+				transform: translateY(6px);
+			}
+		}
+		.billing {
+			margin: 30px auto;
+			padding: 10px 0;
+			display: flex;
+			justify-content: space-between;
+			max-width: 400px;
+
+			span {
+				color:$grayish-blue;
+				font-size: .85rem;
+			}
+			span:last-of-type {
+				color: $light-red;
+				background-color:$light-grayish-red;
+				font-size: .8rem;
+				border-radius: 10px;
+				padding: 3px 4px;
+			}
+		}
+	}
+
+	.second-section {
+		padding: 20px 30px;
+		border-top: 1px solid $light-grayish-blue;
+
+		.info {
+			p {
+				text-align:center;
+				color: $grayish-blue;
+				font-size: .85rem;
+				width: fit-content;
+				margin: 10px auto;
+				padding: 5px 0;
+				position: relative;
+
+
+				&::before {
+					content: " ";
+					display: inline-block;
+					width: 13.5px;
+					height: 12px;
+					background: url("../../images/icon-check.svg");
+					background-size: cover;
+					position: absolute;
+					left: -25px;
+					top: 6px;
+				}
+			}
+		}
+
+		button {
+			display: block;
+			width: 220px;
+			border: none;
+			margin: 25px auto 0;
+			padding:12px 55px;
+			background-color: $dark-unsaturated-blue;
+			color: $pale-blue;
+			border-radius: 20px;
+			transition: .5s;
+
+			&:hover {
+				opacity: .8;
+				cursor: pointer;
+			}
+
+		}
+	}
+}
