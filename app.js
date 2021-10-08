@@ -5,6 +5,7 @@
 // 1M pageviews   / $36 per month  //10
 
 const priceInput = document.getElementById("firstInput");
+const discountInput = document.querySelector(".billing-input input");
 let price, views, progressBar;
 
 priceInput.addEventListener("input", modifySlider);
@@ -45,7 +46,29 @@ function modifySlider(event) {
 	const changeProgressBar = document.getElementById("progressBar");
 
 	inputviewsPriceRelation(event.target.value);
+
+	if (discountInput.checked) {
+		price *= 0.75;
+		price = price.toFixed(2);
+	}
 	inputPrice.innerText = "$" + price;
 	inputViews.innerText = views;
 	changeProgressBar.style.width = progressBar + "%";
+}
+
+discountInput.addEventListener("input", discountFunction);
+
+function discountFunction(event) {
+	const price = document.getElementById("price");
+	let currentPrice = +price.innerText.slice(1);
+	if (event.target.checked) {
+		currentPrice *= 0.75; // take out 25%
+		currentPrice = currentPrice.toFixed(2);
+		price.innerText = `$${currentPrice}`;
+	} else {
+		currentPrice *= 1.33333; // bring the number back to its initial value
+		currentPrice = currentPrice.toFixed(2);
+		price.innerText = `$${currentPrice}`;
+	}
+
 }
