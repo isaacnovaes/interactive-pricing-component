@@ -112,7 +112,6 @@ html::-webkit-scrollbar-thumb:active {
 }
 
 body {
-  background-color: black;
   background-color: #fafbff;
 }
 
@@ -126,7 +125,7 @@ body::after {
   z-index: 1;
   background: #505050;
   background: url("../../images/bg-pattern.svg") no-repeat;
-  background-size: 100% 60%;
+  background-size: 100% 400px;
 }
 
 .container {
@@ -217,12 +216,17 @@ main .first-section .billing > span {
   width: fit-content;
 }
 
-main .first-section .billing > span:last-of-type {
+main .first-section .billing span:nth-child(4),
+main .first-section .billing span:nth-child(5) {
   color: #ff8c66;
   background-color: #feece7;
   font-size: 0.8rem;
   border-radius: 10px;
   padding: 3px 4px;
+}
+
+main .first-section .billing span:nth-child(5) {
+  display: none;
 }
 
 main .first-section .billing .billing-input {
@@ -242,6 +246,7 @@ main .first-section .billing .billing-input input {
 
 main .first-section .billing .billing-input input:hover {
   cursor: pointer;
+  background: #a5f3eb;
 }
 
 main .first-section .billing .billing-input input::before {
@@ -296,7 +301,7 @@ main .second-section .info p::before {
   top: 6px;
 }
 
-main .second-section button {
+main .second-section a {
   display: block;
   width: 220px;
   border: none;
@@ -309,7 +314,7 @@ main .second-section button {
   transition: 0.5s;
 }
 
-main .second-section button:hover {
+main .second-section a:hover {
   opacity: 0.8;
   cursor: pointer;
 }
@@ -397,7 +402,7 @@ main .first-section .input > input[type="range"]:focus #progressBar {
 }
 
 @media screen and (min-width: 800px) {
-  .flex-container {
+  main .first-section .flex-container {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -407,25 +412,52 @@ main .first-section .input > input[type="range"]:focus #progressBar {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
   }
-  .flex-container p#pageviews {
+  main .first-section .flex-container p#pageviews {
     -webkit-box-ordinal-group: 2;
         -ms-flex-order: 1;
             order: 1;
     padding-top: 33px;
   }
-  .flex-container p#amount {
+  main .first-section .flex-container p#amount {
     -webkit-box-ordinal-group: 3;
         -ms-flex-order: 2;
             order: 2;
   }
-  .flex-container div.input {
+  main .first-section .flex-container div.input {
     -webkit-box-ordinal-group: 4;
         -ms-flex-order: 3;
             order: 3;
     width: 100%;
   }
-  .billing span:last-of-type {
-    -webkit-transform: translateX(-20px);
-            transform: translateX(-20px);
+  main .first-section .billing span:nth-child(4) {
+    display: none;
+  }
+  main .first-section .billing span:nth-child(5) {
+    display: block;
+  }
+  main .second-section {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  main .second-section .info {
+    padding: 20px;
+  }
+  main .second-section .info p {
+    text-align: left;
+    width: 200px;
+  }
+  main .second-section .info p::before {
+    left: -21px;
+  }
+  main .second-section a {
+    -webkit-transform: translateY(-10px);
+            transform: translateY(-10px);
   }
 }

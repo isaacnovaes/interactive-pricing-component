@@ -1,26 +1,55 @@
 @media screen and (min-width: 800px) {
-	.flex-container {
-		display: flex;
-		justify-content: space-between;
-		flex-wrap: wrap;
-		// align-content: center;
+	main {
+		.first-section {
+			.flex-container {
+				display: flex;
+				justify-content: space-between;
+				flex-wrap: wrap;
 
-		p#pageviews {
-			order: 1;
-			padding-top: 33px;
-		}
-		p#amount {
-			order: 2;
-		}
-		div.input {
-			order: 3;
-			width: 100%;
-		}
-	}
+				p#pageviews {
+					order: 1;
+					padding-top: 33px;
+				}
+				p#amount {
+					order: 2;
+				}
+				div.input {
+					order: 3;
+					width: 100%;
+				}
+			}
 
-	.billing {
-		span:last-of-type {
-			transform: translateX(-20px);
+			.billing {
+				span:nth-child(4) {
+					display: none;
+				}
+				span:nth-child(5) {
+					display: block;
+				}
+			}
+		}
+
+		.second-section {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+
+			.info {
+				padding: 20px;
+
+				p {
+					text-align: left;
+					width: 200px;
+
+					&::before {
+						left: -21px;
+					}
+				}
+			}
+
+			a {
+				transform: translateY(-10px);
+			}
 		}
 	}
 }

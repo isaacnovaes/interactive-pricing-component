@@ -1,7 +1,6 @@
 body {
-	background-color: black;
 	background-color: $very-pale-blue;
-
+	//Bluish background
 	&::after {
 		content: " ";
 		display: block;
@@ -12,7 +11,7 @@ body {
 		z-index: 1;
 		background: rgb(80, 80, 80);
 		background: url("../../images/bg-pattern.svg") no-repeat;
-		background-size: 100% 60%; //play with it so that the perfect design is achieved
+		background-size: 100% 400px;
 	}
 }
 .container {
@@ -78,19 +77,23 @@ main {
 			justify-content: space-between;
 			align-items: center;
 			max-width: 400px;
-			
+
 			> span {
 				color: $grayish-blue;
 				font-size: 0.85rem;
 				text-align: center;
 				width: fit-content;
 			}
-			> span:last-of-type {
+			span:nth-child(4),
+			span:nth-child(5) {
 				color: $light-red;
 				background-color: $light-grayish-red;
 				font-size: 0.8rem;
 				border-radius: 10px;
 				padding: 3px 4px;
+			}
+			span:nth-child(5) {
+				display: none;
 			}
 
 			.billing-input {
@@ -106,7 +109,10 @@ main {
 
 					&:hover {
 						cursor: pointer;
+						background:$soft-cyan ;
 					}
+
+					//White circle
 					&::before {
 						content: "";
 						position: absolute;
@@ -159,7 +165,7 @@ main {
 			}
 		}
 
-		button {
+		a {
 			display: block;
 			width: 220px;
 			border: none;

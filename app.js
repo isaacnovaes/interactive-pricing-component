@@ -1,3 +1,9 @@
+// 10K pageviews  / $8 per month   //2
+// 50K pageviews  / $12 per month  //4
+// 100K pageviews / $16 per month  //6
+// 500k pageviews / $24 per month  //8
+// 1M pageviews   / $36 per month  //10
+
 const priceInput = document.getElementById("firstInput");
 let price, views, progressBar;
 
@@ -37,9 +43,9 @@ function modifySlider(event) {
 	const inputPrice = document.getElementById("price");
 	const inputViews = document.getElementById("views");
 	const changeProgressBar = document.getElementById("progressBar");
+
 	inputviewsPriceRelation(event.target.value);
 	inputPrice.innerText = "$" + price;
 	inputViews.innerText = views;
-    changeProgressBar.style.width = progressBar + "%";
-	console.dir(event.target);
+	changeProgressBar.style.width = progressBar + "%";
 }
